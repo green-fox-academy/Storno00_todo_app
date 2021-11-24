@@ -31,6 +31,4 @@ if (args.length === 0) {
     }
 }
 
-
 myFunctions.writeTodo(myTodos.todos);
-myTodos.listTodos();
