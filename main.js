@@ -9,20 +9,28 @@ const myFunctions = new TodoFunctions;
 
 myFunctions.readTodo(myTodos.todos);
 
-switch (args[0]) {
-    case '-l':
-        myTodos.isEmpty() === true ? console.log('You have no todos for today :)') : console.log(myTodos.listTodos());
-        break;
-    case '-a':
-        myTodos.addTodo(new Todo(args[1]));
-        break;
-    case '-r':
-        myTodos.removeTodo(parseInt(args[1]) - 1);
-        break;
-    case '-c':
-        myTodos.todos[parseInt(args[1]) - 1].doTodo();
-        break;
+if (args.length === 0) {
+    console.log(myFunctions.readFunctionalities());
+} else {
+    switch (args[0]) {
+        case '-l':
+            console.log(myTodos.listTodos());
+            break;
+        case '-a':
+            myTodos.addTodo(new Todo(args[1]));
+            break;
+        case '-r':
+            myTodos.removeTodo(parseInt(args[1]) - 1);
+            break;
+        case '-c':
+            myTodos.todos[parseInt(args[1]) - 1].doTodo();
+            break;
+        default:
+            console.log('Unsupported argument!');
+            console.log(myFunctions.readFunctionalities());
+    }
 }
+
 
 myFunctions.writeTodo(myTodos.todos);
 myTodos.listTodos();
