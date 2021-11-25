@@ -9,26 +9,19 @@ const myFunctions = new TodoFunctions;
 
 myFunctions.readTodo(myTodos.todos);
 
-if (args.length === 0) {
+if (args[0] === '-l') {
+    console.log(myTodos.listTodos());
+} else if (args[0] === '-a') {
+    args[1] === undefined ? console.log('Unable to add: no task provided') : myTodos.addTodo(new Todo(args[1]));
+} else if (args[0] === '-r') {
+    args[1] === undefined ? console.log('Unable to remove: no index provided') : myTodos.removeTodo(parseInt(args[1]) - 1);
+} else if (args[0] === '-c') {
+    myTodos.todos[parseInt(args[1]) - 1].doTodo();
+} else if (args[0] === undefined) {
     console.log(myFunctions.readFunctionalities());
 } else {
-    switch (args[0]) {
-        case '-l':
-            console.log(myTodos.listTodos());
-            break;
-        case '-a':
-            myTodos.addTodo(new Todo(args[1]));
-            break;
-        case '-r':
-            myTodos.removeTodo(parseInt(args[1]) - 1);
-            break;
-        case '-c':
-            myTodos.todos[parseInt(args[1]) - 1].doTodo();
-            break;
-        default:
-            console.log('Unsupported argument!');
-            console.log(myFunctions.readFunctionalities());
-    }
+    console.log('Unsupported argument!');
+    console.log(myFunctions.readFunctionalities());
 }
 
 myFunctions.writeTodo(myTodos.todos);
