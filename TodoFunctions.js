@@ -20,4 +20,15 @@ export class TodoFunctions {
     readFunctionalities() {
         return fs.readFileSync('functionalities.txt', 'utf-8');
     }
+    errorHandling(arg, numberOfTodos) {
+        if (arg === undefined) {
+            console.log('Unable to remove: no index provided');
+        } else if (arg > numberOfTodos) {
+            console.log('Unable to remove: index is out of bound');
+        } else if (typeof arg !== 'number') {
+            console.log('Unable to remove: index is not a number');
+        } else {
+            return true;
+        }
+    }
 }

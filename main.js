@@ -14,7 +14,9 @@ if (args[0] === '-l') {
 } else if (args[0] === '-a') {
     args[1] === undefined ? console.log('Unable to add: no task provided') : myTodos.addTodo(new Todo(args[1]));
 } else if (args[0] === '-r') {
-    args[1] === undefined ? console.log('Unable to remove: no index provided') : myTodos.removeTodo(parseInt(args[1]) - 1);
+    console.log(typeof args[1]);
+    if (myFunctions.errorHandling(args[1], myTodos.howManyTodos()) === true) myTodos.removeTodo(parseInt(args[1]) - 1);
+    // myTodos.removeTodo(parseInt(args[1]) - 1);
 } else if (args[0] === '-c') {
     myTodos.todos[parseInt(args[1]) - 1].doTodo();
 } else if (args[0] === undefined) {

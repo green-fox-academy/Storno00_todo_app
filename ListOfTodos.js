@@ -7,12 +7,8 @@ export class ListOfTodos {
     removeTodo(index) {
         this.todos.splice(index, 1);
     }
-    isEmpty() {
-        if (this.todos.length === 0) {
-            return true;
-        } else {
-            return false;
-        }
+    howManyTodos() {
+        return this.todos.length;
     }
     listTodos() {
         let outputString = '';
