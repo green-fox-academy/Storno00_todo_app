@@ -1,4 +1,6 @@
+import { Console } from 'console';
 import fs from 'fs';
+import { parse } from 'path';
 import { Todo } from "./Todo.js";
 
 export class TodoFunctions {
@@ -23,9 +25,9 @@ export class TodoFunctions {
     errorHandling(arg, numberOfTodos) {
         if (arg === undefined) {
             console.log('Unable to remove: no index provided');
-        } else if (arg > numberOfTodos) {
+        } else if (parseInt(arg) > numberOfTodos && !isNaN(arg)) {
             console.log('Unable to remove: index is out of bound');
-        } else if (typeof arg !== 'number') {
+        } else if (isNaN(parseInt(arg))) {
             console.log('Unable to remove: index is not a number');
         } else {
             return true;
