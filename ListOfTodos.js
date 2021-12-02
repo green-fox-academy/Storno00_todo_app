@@ -16,6 +16,6 @@ export class ListOfTodos {
         for (let i = 0; i < this.todos.length; i++) {
             outputString += `${i + 1} - [${this.todos[i].isDone === true ? 'x' : ' '}] ${this.todos[i].todoString}\n`;
         }
-        return outputString;
+        return outputString = outputString.length == 0 ? 'No todos for today :)' : outputString;
     }
 }
